@@ -58,3 +58,16 @@
 }
 
 \newcommand{\ten}[1]{\times10^{#1}}
+
+% ヘッダの設定
+\makeatletter
+\def\ps@pageonhead{
+  %偶奇ともにヘッダにページ数
+  \def\@oddhead{\hfill\thepage}
+  \def\@evenhead{\hfill\thepage}
+  % フッターは空
+  \def\@oddfoot{}
+  \def\@evenfoot{}
+}
+
+\pagestyle{pageonhead}
