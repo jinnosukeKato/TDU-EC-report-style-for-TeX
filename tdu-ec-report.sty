@@ -1,0 +1,60 @@
+\ProvidesPackage{tdu-ec-report}
+
+\RequirePackage[haranoaji]{luatexja-preset}
+
+\RequirePackage{amsmath}
+\RequirePackage{mathtools}
+
+\ExplSyntaxOn
+\DeclareDocumentCommand \newjfontfamily { m o m O{} }
+{
+  \cs_set_eq:NN \fontspec_set_family:Nnn \ltj_fontspec_set_family:Nnn
+  \IfNoValueTF{#2}
+  {% no middle optional argument, use #4
+    \newfontfamily {#1} [#4] {#3}
+  }
+  {% middle optional argument, use it
+    \newfontfamily {#1} [#2] {#3}
+  }
+  \cs_set_eq:NN \fontspec_set_family:Nnn \__ltj_orig_fontspec_set_family:Nnn
+}
+\ExplSyntaxOff
+
+\RequirePackage{graphicx}
+\RequirePackage{here}
+\RequirePackage{svg}
+
+\RequirePackage{tabularray}
+\RequirePackage{siunitx}
+\UseTblrLibrary{siunitx}
+\DefTblrTemplate{contfoot-text}{default}{次ページに続く}
+\DefTblrTemplate{conthead-text}{default}{(続き)}
+\DefTblrTemplate{caption-sep}{default}{\enspace} % longtblrでもcaption-sepalatorをスペースにする
+
+% longtblrで長い見出しが改行されるのを防ぐ
+\DefTblrTemplate{firsthead}{default}{
+  \makebox[\tablewidth]{\parbox{\columnwidth}{
+    \UseTblrTemplate{caption}{normal}
+  }}
+}
+\DefTblrTemplate{middlehead, lasthead}{default}{
+  \makebox[\tablewidth]{\parbox{\columnwidth}{
+    \UseTblrTemplate{lasthead}{normal}
+  }}
+}
+
+\RequirePackage[setpagesize=false]{hyperref}
+\hypersetup{unicode,bookmarksnumbered=true,hidelinks,final}
+
+\RequirePackage{listings}
+\RequirePackage[labelsep=space]{caption}
+\renewcommand{\lstlistingname}{リスト}
+\lstdefinestyle{C_code}{
+  frame=single,
+  language=C,
+  basicstyle=\ttfamily\small,
+  showstringspaces=false,
+  captionpos=t
+}
+
+\newcommand{\ten}[1]{\times10^{#1}}
