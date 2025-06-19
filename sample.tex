@@ -1,0 +1,76 @@
+\documentclass[11pt]{ltjsarticle}
+
+\usepackage{tdu-ec-report-style/tdu-ec-report}
+
+\title{サンプル}
+
+\graphicspath{ {./figs/} }
+
+\begin{document}
+\section{実験日・気温・湿度・天候}
+\subsection{実験日}
+2025年5月20日
+
+\subsection{気温}
+25 ℃
+
+\subsection{湿度}
+20 \%
+
+\subsection{天候}
+晴天
+
+\section{目的}
+\TeX を基にして機能強化した \LaTeX \cite{LaTeX}を用いて，レポートを記述する基礎を学ぶ．
+
+\section{使用機器}
+本実験で使用した機器名とメーカー名及び型番とその数量を表\ref{used}に示す．
+
+\begin{table}[!htbp]
+  \centering
+  \caption{使用機器名とそのメーカー名及び型番と数量}
+  \label{used}
+  \begin{tblr}{
+      hlines = {dash=solid},
+      vlines = {dash=solid},
+      rows = {halign = c},
+    }
+    機器名      & メーカー名   & 型番      & 数量 \\
+    シリアル送受信機 & 情報通信実験室 & ---     & 2  \\
+    オシロスコープ  & IWATSU  & DS5105B & 1  \\
+  \end{tblr}
+\end{table}
+
+\pagebreak
+
+\section{実験1}
+\LaTeX で生成する文中に図を表示する方法を学ぶ．
+
+\subsection{実験方法}
+このソースコードに図を挿入した．
+
+\subsection{実験結果}
+挿入した結果を図\ref{fig:example-image}に示す．
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=14cm]{example-image}
+  \caption{図の挿入例}
+  \label{fig:example-image}
+\end{figure}
+
+\pagebreak
+
+\section{検討事項}
+
+\pagebreak
+
+\section{吟味}
+
+\pagebreak
+
+\begin{thebibliography}{9}
+  \bibitem{LaTeX}
+  奥村晴彦，黒木裕介：”[改訂第9版] \LaTeX 美文書作成入門”，技術評論社，p.1，2023．
+\end{thebibliography}
+
+\end{document}
