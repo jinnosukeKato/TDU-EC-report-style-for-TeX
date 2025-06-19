@@ -27,9 +27,13 @@
 \RequirePackage{tabularray}
 \RequirePackage{siunitx}
 \UseTblrLibrary{siunitx}
+
+% longtblrのローカライズ
 \DefTblrTemplate{contfoot-text}{default}{次ページに続く}
 \DefTblrTemplate{conthead-text}{default}{(続き)}
-\DefTblrTemplate{caption-sep}{default}{\enspace} % longtblrでもcaption-sepalatorをスペースにする
+
+% longtblrでもcaption-separatorをスペースにする
+\DefTblrTemplate{caption-sep}{default}{\enspace}
 
 % longtblrで長い見出しが改行されるのを防ぐ
 \DefTblrTemplate{firsthead}{default}{
@@ -49,6 +53,7 @@
 \RequirePackage{listings}
 \RequirePackage[labelsep=space]{caption}
 \renewcommand{\lstlistingname}{リスト}
+
 \lstdefinestyle{C_code}{
   frame=single,
   language=C,
@@ -69,5 +74,4 @@
   \def\@oddfoot{}
   \def\@evenfoot{}
 }
-
 \pagestyle{pageonhead}
